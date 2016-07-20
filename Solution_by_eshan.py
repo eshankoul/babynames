@@ -12,8 +12,10 @@ extract.append(year[0])
 tuples= re.findall(r'<td>([\w]+)</td>+<td>([\w]+)</td>+<td>([\w]+)</td>',names)
 dict={}
 for tuple in tuples:
-    dict[tuple[1]]=tuple[0]
-    dict[tuple[2]]=tuple[0]
+    if tuple[1] not in dict:
+        dict[tuple[1]]=tuple[0]
+    if tuple[2] not in dict:
+        dict[tuple[2]]=tuple[0]
 
     # print(tuple[1]+' '+str(tuple[0]))
     # extract.append(tuple[1]+' '+str(tuple[0]))
